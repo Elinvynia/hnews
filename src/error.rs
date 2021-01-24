@@ -1,10 +1,10 @@
-//! Error struct representing possible failure modes.
+//! Error struct representing possible failures.
 
 use std::error::Error;
 use std::fmt::{Display, Formatter, Result as FmtResult};
 
 #[derive(Debug)]
-/// The error enum representing all possible errors from this crate.
+/// The error enum representing all possible errors that can originate from this crate.
 pub enum HError {
     /// Error originating from the `ureq` crate.
     UReq(ureq::Error),
@@ -25,7 +25,10 @@ impl Display for HError {
             UReq(e) => write!(fmt, "UReq Error: {}", e),
             Miniserde(e) => write!(fmt, "Miniserde Error: {}", e),
             Io(e) => write!(fmt, "Io Error: {}", e),
-            ConversionFailed => write!(fmt, "Conversion failed."),
+            ConversionFailed => write!(
+                fmt,
+                "Conversion between returned data and our representation failed."
+            ),
         }
     }
 }

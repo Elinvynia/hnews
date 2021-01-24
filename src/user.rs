@@ -5,11 +5,11 @@ use miniserde::{Deserialize, Serialize};
 
 #[non_exhaustive]
 #[derive(Debug, Serialize, Deserialize)]
-/// Represents the user.
+/// Struct representing a User.
 pub struct User {
-    /// Unique username of the user, case-sensitive.
+    /// Username of the user, unique and case-sensitive.
     pub id: String,
-    /// User creation time as a UNIX timestamp.
+    /// User creation time as a Unix timestamp.
     pub created: u64,
     /// The total karma of the user.
     pub karma: u64,

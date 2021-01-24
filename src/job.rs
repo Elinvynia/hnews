@@ -4,26 +4,26 @@ use crate::prelude::*;
 
 #[non_exhaustive]
 #[derive(Debug)]
-/// Job posting submission.
+/// Struct representing a Job posting.
 pub struct Job {
-    /// Username of the user that posted this.
+    /// The username of the [User] that created this submission.
     pub by: String,
-    /// The unique id of this job listing.
+    /// The unique id of this submission.
     pub id: u64,
     /// The score of this submission.
     pub score: u64,
-    /// The text of this job listing.
+    /// The text of this submission.
     pub text: String,
-    /// UNIX timestamp when it was posted.
+    /// When this submission was made, as a Unix timestamp.
     pub time: u64,
-    /// The title of the submission.
+    /// The title of this submission.
     pub title: String,
-    /// The URL where the submission leads.
+    /// The URL where this submission leads.
     pub url: String,
 }
 
 impl Job {
-    /// Returns the User that posted this submission.
+    /// Returns the [User] that posted this submission.
     pub fn by(&self) -> Result<User, HError> {
         Client::get_user(&self.by)
     }

@@ -1,4 +1,4 @@
-//! Generic useful re-exports for this crate.
+//! Useful re-exports for this crate.
 
 pub use crate::ask::Ask;
 pub use crate::client::Client;

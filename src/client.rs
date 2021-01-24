@@ -29,7 +29,7 @@ impl Client {
         Ok(comment)
     }
 
-    /// Returns a [Poll} with the id.
+    /// Returns a [Poll] with the id.
     pub fn get_poll(id: u64) -> Result<Poll, HError> {
         let item = Client::get_item(id)?;
         let poll: Poll = item.try_into()?;

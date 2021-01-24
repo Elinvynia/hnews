@@ -6,7 +6,7 @@ use crate::prelude::*;
 #[derive(Debug)]
 /// Struct representing a Story submission.
 pub struct Story {
-    /// The username of the [User] that created this story.
+    /// The username of the [User] that created this submission.
     pub by: String,
     /// The total amount of comments.
     pub comments: u64,
@@ -15,7 +15,7 @@ pub struct Story {
     pub(crate) kids: Vec<u64>,
     /// The score of this submission.
     pub score: u64,
-    /// The UNIX timestamp of this submission.
+    /// When this submission was made, as a Unix timestamp.
     pub time: u64,
     /// The title of this submission.
     pub title: String,

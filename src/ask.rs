@@ -10,16 +10,16 @@ pub struct Ask {
     pub by: String,
     /// The total amount of comments.
     pub comments: u64,
-    /// Unique id of the submission.
+    /// The unique id of this submission.
     pub id: u64,
     pub(crate) kids: Vec<u64>,
-    /// The score of the submission.
+    /// The score of this submission.
     pub score: u64,
-    /// The text of the submission.
+    /// The text of this submission.
     pub text: String,
-    /// Unix timestamp of the submission.
+    /// When this submission was made, as a Unix timestamp.
     pub time: u64,
-    /// The title of the submission.
+    /// The title of this submission.
     pub title: String,
 }
 
