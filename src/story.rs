@@ -31,6 +31,9 @@ impl Story {
 
     /// Returns the list of top-level [Comments](Comment) of this Story.
     pub fn comments(&self) -> Result<Vec<Comment>, HError> {
-        self.kids.iter().map(|kid| Client::get_comment(*kid)).collect()
+        self.kids
+            .iter()
+            .map(|kid| Client::get_comment(*kid))
+            .collect()
     }
 }

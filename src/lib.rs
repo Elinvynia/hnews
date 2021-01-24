@@ -15,7 +15,6 @@
 //! [docs-badge]: https://img.shields.io/badge/docs-online-5023dd.svg?style=flat-square
 //! [crate-link]: https://crates.io/crates/hnews
 //! [crate-version]: https://img.shields.io/crates/v/hnews.svg?style=flat-square
-//! RANDOM CHANGE
 
 pub mod ask;
 pub mod client;

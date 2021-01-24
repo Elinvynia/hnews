@@ -1,7 +1,7 @@
 //! User struct and associated methods.
 
 use crate::prelude::*;
-use miniserde::{Serialize, Deserialize};
+use miniserde::{Deserialize, Serialize};
 
 #[non_exhaustive]
 #[derive(Debug, Serialize, Deserialize)]
@@ -15,7 +15,7 @@ pub struct User {
     pub karma: u64,
     /// Optional description of the user.
     pub about: String,
-    pub(crate)submitted: Vec<u64>,
+    pub(crate) submitted: Vec<u64>,
 }
 
 impl User {
