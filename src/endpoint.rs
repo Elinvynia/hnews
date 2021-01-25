@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 const URL: &str = "https://hacker-news.firebaseio.com";
 const VERSION: &str = "v0";
 

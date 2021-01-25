@@ -145,3 +145,9 @@ impl TryFrom<Item> for Story {
         })
     }
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub(crate) struct Update {
+    pub(crate) items: Vec<u64>,
+    pub(crate) profiles: Vec<String>,
+}

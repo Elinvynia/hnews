@@ -6,6 +6,7 @@ pub use crate::comment::Comment;
 pub(crate) use crate::endpoint::Endpoint;
 pub use crate::error::HError;
 pub(crate) use crate::item::Item;
+pub(crate) use crate::item::Update;
 pub use crate::job::Job;
 pub use crate::poll::{Poll, PollOption};
 pub use crate::story::Story;
