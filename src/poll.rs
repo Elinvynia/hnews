@@ -4,33 +4,33 @@ use crate::prelude::*;
 
 #[non_exhaustive]
 #[derive(Debug)]
-/// A struct representing a poll.
+/// A struct representing a Poll.
 pub struct Poll {
-    /// The username of the User that created this poll.
+    /// The username of the User that created this submission.
     pub by: String,
     /// The total amount of comments.
     pub comments: u64,
-    /// The unique id of the submission.
+    /// The unique id of this submission.
     pub id: u64,
     pub(crate) kids: Vec<u64>,
     pub(crate) parts: Vec<u64>,
-    /// The score of the submission.
+    /// The score of this submission.
     pub score: u64,
-    /// The text of the submission.
+    /// The text of this submission.
     pub text: String,
-    /// The UNIX timestamp when the submission was made.
+    /// When this submission was made, as a Unix timestamp.
     pub time: u64,
-    /// The title of the submission.
+    /// The title of this submission.
     pub title: String,
 }
 
 impl Poll {
-    /// Returns the User that created this poll.
+    /// Returns the [User] that created this poll.
     pub fn by(&self) -> Result<User, HError> {
         Client::get_user(&self.by)
     }
 
-    /// Returns the top-level comments of the poll.
+    /// Returns the top-level [Comments](Comment) of the poll.
     pub fn comments(&self) -> Result<Vec<Comment>, HError> {
         self.kids
             .iter()
@@ -38,7 +38,7 @@ impl Poll {
             .collect()
     }
 
-    /// Returns the options of this poll.
+    /// Returns the [Poll Options](PollOption) of this poll.
     pub fn options(&self) -> Result<Vec<PollOption>, HError> {
         self.parts
             .iter()
@@ -51,27 +51,27 @@ impl Poll {
 #[derive(Debug)]
 /// A poll option belonging to a poll.
 pub struct PollOption {
-    /// Username of the user that created the poll option.
+    /// Username of the [User] that created this poll option.
     pub by: String,
-    /// Unique ID of the poll option.
+    /// Unique id of this poll option.
     pub id: u64,
-    /// The poll it belongs to.
+    /// The [Poll] it belongs to.
     pub poll: u64,
-    /// The score of the poll option.
+    /// The score of this poll option.
     pub score: u64,
-    /// The text of the poll option.
+    /// The text of this poll option.
     pub text: String,
-    /// When it was created, unix timestamp.
+    /// When this option was made, as a Unix timestamp.
     pub time: u64,
 }
 
 impl PollOption {
-    /// Return the User that created the poll option.
+    /// Return the [User] that created this poll option.
     pub fn by(&self) -> Result<User, HError> {
         Client::get_user(&self.by)
     }
 
-    /// Return the Poll this option belongs to.
+    /// Return the [Poll] this option belongs to.
     pub fn poll(&self) -> Result<Poll, HError> {
         Client::get_poll(self.poll)
     }

@@ -1,21 +1,21 @@
 //! User struct and associated methods.
 
 use crate::prelude::*;
-use miniserde::{Serialize, Deserialize};
+use miniserde::{Deserialize, Serialize};
 
 #[non_exhaustive]
 #[derive(Debug, Serialize, Deserialize)]
-/// Represents the user.
+/// Struct representing a User.
 pub struct User {
-    /// Unique username of the user, case-sensitive.
+    /// Username of the user, unique and case-sensitive.
     pub id: String,
-    /// User creation time as a UNIX timestamp.
+    /// User creation time as a Unix timestamp.
     pub created: u64,
     /// The total karma of the user.
     pub karma: u64,
     /// Optional description of the user.
     pub about: String,
-    pub(crate)submitted: Vec<u64>,
+    pub(crate) submitted: Vec<u64>,
 }
 
 impl User {

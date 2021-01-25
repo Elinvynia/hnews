@@ -11,11 +11,11 @@ pub struct Comment {
     /// The unique id of this comment.
     pub id: u64,
     pub(crate) kids: Vec<u64>,
-    /// The id of the parent this comment belongs to.
+    /// The id of the parent this comment belongs to, either another [Comment] or one of: [Story], [Ask], [Poll]
     pub parent: u64,
     /// The text of the comment.
     pub text: String,
-    /// The UNIX timestamp when this comment was made.
+    /// When this comment was made, as a Unix timestamp.
     pub time: u64,
 }
 
