@@ -15,7 +15,7 @@ pub struct Poll {
     pub(crate) kids: Vec<u64>,
     pub(crate) parts: Vec<u64>,
     /// The score of this submission.
-    pub score: u64,
+    pub score: i64,
     /// The text of this submission.
     pub text: String,
     /// When this submission was made, as a Unix timestamp.
@@ -58,7 +58,7 @@ pub struct PollOption {
     /// The [Poll] it belongs to.
     pub poll: u64,
     /// The score of this poll option.
-    pub score: u64,
+    pub score: i64,
     /// The text of this poll option.
     pub text: String,
     /// When this option was made, as a Unix timestamp.

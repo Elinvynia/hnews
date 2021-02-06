@@ -14,7 +14,7 @@ pub struct Ask {
     pub id: u64,
     pub(crate) kids: Vec<u64>,
     /// The score of this submission.
-    pub score: u64,
+    pub score: i64,
     /// The text of this submission.
     pub text: String,
     /// When this submission was made, as a Unix timestamp.

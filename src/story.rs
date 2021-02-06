@@ -14,7 +14,7 @@ pub struct Story {
     pub id: u64,
     pub(crate) kids: Vec<u64>,
     /// The score of this submission.
-    pub score: u64,
+    pub score: i64,
     /// When this submission was made, as a Unix timestamp.
     pub time: u64,
     /// The title of this submission.

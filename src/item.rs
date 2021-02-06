@@ -18,7 +18,7 @@ pub struct Item {
     pub(crate) poll: Option<u64>,
     pub(crate) kids: Option<Vec<u64>>,
     pub(crate) url: Option<String>,
-    pub(crate) score: Option<u64>,
+    pub(crate) score: Option<i64>,
     pub(crate) title: Option<String>,
     pub(crate) parts: Option<Vec<u64>>,
     pub(crate) descendants: Option<u64>,
