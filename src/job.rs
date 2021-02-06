@@ -24,7 +24,7 @@ pub struct Job {
 
 impl Job {
     /// Returns the [User] that posted this submission.
-    pub fn by(&self) -> Result<User, HError> {
-        Client::get_user(&self.by)
+    pub fn by(&self, client: Client) -> Result<User, HError> {
+        client.get_user(&self.by)
     }
 }

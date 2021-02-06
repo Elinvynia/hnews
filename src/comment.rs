@@ -21,15 +21,15 @@ pub struct Comment {
 
 impl Comment {
     /// Returns the [User] that made this comment.
-    pub fn by(&self) -> Result<User, HError> {
-        Client::get_user(&self.by)
+    pub fn by(&self, client: Client) -> Result<User, HError> {
+        client.get_user(&self.by)
     }
 
     /// Returns the top-level replies to this comment.
-    pub fn replies(&self) -> Result<Vec<Comment>, HError> {
+    pub fn replies(&self, client: Client) -> Result<Vec<Comment>, HError> {
         self.kids
             .iter()
-            .map(|kid| Client::get_comment(*kid))
+            .map(|kid| client.get_comment(*kid))
             .collect()
     }
 }

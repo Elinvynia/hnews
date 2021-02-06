@@ -20,10 +20,10 @@ pub struct User {
 
 impl User {
     /// Returns a list of [Comments](Comment) this user has posted.
-    pub fn comments(&self) -> Result<Vec<Comment>, HError> {
+    pub fn comments(&self, client: Client) -> Result<Vec<Comment>, HError> {
         let mut comments = vec![];
         for x in self.submitted.iter() {
-            match Client::get_comment(*x) {
+            match client.get_comment(*x) {
                 Ok(s) => comments.push(s),
                 Err(_) => continue,
             }
@@ -32,10 +32,10 @@ impl User {
     }
 
     /// Returns a list of [Polls](Poll) this user has posted.
-    pub fn polls(&self) -> Result<Vec<Poll>, HError> {
+    pub fn polls(&self, client: Client) -> Result<Vec<Poll>, HError> {
         let mut polls = vec![];
         for x in self.submitted.iter() {
-            match Client::get_poll(*x) {
+            match client.get_poll(*x) {
                 Ok(s) => polls.push(s),
                 Err(_) => continue,
             }
@@ -44,10 +44,10 @@ impl User {
     }
 
     /// Returns a list of [Stories](Story) this user has posted.
-    pub fn stories(&self) -> Result<Vec<Story>, HError> {
+    pub fn stories(&self, client: Client) -> Result<Vec<Story>, HError> {
         let mut stories = vec![];
         for x in self.submitted.iter() {
-            match Client::get_story(*x) {
+            match client.get_story(*x) {
                 Ok(s) => stories.push(s),
                 Err(_) => continue,
             }

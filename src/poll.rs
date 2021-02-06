@@ -26,23 +26,23 @@ pub struct Poll {
 
 impl Poll {
     /// Returns the [User] that created this poll.
-    pub fn by(&self) -> Result<User, HError> {
-        Client::get_user(&self.by)
+    pub fn by(&self, client: Client) -> Result<User, HError> {
+        client.get_user(&self.by)
     }
 
     /// Returns the top-level [Comments](Comment) of the poll.
-    pub fn comments(&self) -> Result<Vec<Comment>, HError> {
+    pub fn comments(&self, client: Client) -> Result<Vec<Comment>, HError> {
         self.kids
             .iter()
-            .map(|kid| Client::get_comment(*kid))
+            .map(|kid| client.get_comment(*kid))
             .collect()
     }
 
     /// Returns the [Poll Options](PollOption) of this poll.
-    pub fn options(&self) -> Result<Vec<PollOption>, HError> {
+    pub fn options(&self, client: Client) -> Result<Vec<PollOption>, HError> {
         self.parts
             .iter()
-            .map(|kid| Client::get_poll_option(*kid))
+            .map(|kid| client.get_poll_option(*kid))
             .collect()
     }
 }
@@ -67,12 +67,12 @@ pub struct PollOption {
 
 impl PollOption {
     /// Return the [User] that created this poll option.
-    pub fn by(&self) -> Result<User, HError> {
-        Client::get_user(&self.by)
+    pub fn by(&self, client: Client) -> Result<User, HError> {
+        client.get_user(&self.by)
     }
 
     /// Return the [Poll] this option belongs to.
-    pub fn poll(&self) -> Result<Poll, HError> {
-        Client::get_poll(self.poll)
+    pub fn poll(&self, client: Client) -> Result<Poll, HError> {
+        client.get_poll(self.poll)
     }
 }
