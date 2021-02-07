@@ -85,7 +85,11 @@ impl Client {
 
     /// Returns a [User] with the specified username.
     pub fn get_user(&self, name: &str) -> Result<User, HError> {
-        let response = self.client.get(&Endpoint::user(name)).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::user(name))
+            .call()?
+            .into_string()?;
 
         let user: User = from_str(&response)?;
         Ok(user)
@@ -93,63 +97,99 @@ impl Client {
 
     /// Gets up to 200 of the latest [Asks](Ask).
     pub fn get_latest_asks(&self) -> Result<Vec<Ask>, HError> {
-        let response = self.client.get(&Endpoint::askstories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::askstories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         ids.into_iter().map(|id| self.get_ask(id)).collect()
     }
 
     /// Gets up to 200 of the latest [Stories](Story).
     pub fn get_latest_stories(&self) -> Result<Vec<Story>, HError> {
-        let response = self.client.get(&Endpoint::showstories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::showstories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         ids.into_iter().map(|id| self.get_story(id)).collect()
     }
 
     /// Gets up to 200 of the latest [Jobs](Job).
     pub fn get_latest_jobs(&self) -> Result<Vec<Job>, HError> {
-        let response = self.client.get(&Endpoint::askstories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::askstories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         ids.into_iter().map(|id| self.get_job(id)).collect()
     }
 
     /// Returns the latest item id, can be any of: [Story], [Ask], [Job].
     pub fn get_latest(&self) -> Result<u64, HError> {
-        let response = self.client.get(&Endpoint::maxitem()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::maxitem())
+            .call()?
+            .into_string()?;
         let id: u64 = from_str(&response)?;
         Ok(id)
     }
 
     /// Returns up to 500 of the latest top item ids, can be any of: [Story], [Ask], [Job].
     pub fn get_top(&self) -> Result<Vec<u64>, HError> {
-        let response = self.client.get(&Endpoint::topstories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::topstories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         Ok(ids)
     }
 
     /// Returns up to 500 of the latest item ids, can be any of: [Story], [Ask], [Job].
     pub fn get_new(&self) -> Result<Vec<u64>, HError> {
-        let response = self.client.get(&Endpoint::newstories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::newstories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         Ok(ids)
     }
 
     /// Returns up to 500 of the latest best item ids, can be any of: [Story], [Ask], [Job].
     pub fn get_best(&self) -> Result<Vec<u64>, HError> {
-        let response = self.client.get(&Endpoint::beststories()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::beststories())
+            .call()?
+            .into_string()?;
         let ids: Vec<u64> = from_str(&response)?;
         Ok(ids)
     }
 
     /// Returns [User] profiles that have changed.
     pub fn get_user_updates(&self) -> Result<Vec<String>, HError> {
-        let response = self.client.get(&Endpoint::updates()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::updates())
+            .call()?
+            .into_string()?;
         let update: Update = from_str(&response)?;
         Ok(update.profiles)
     }
 
     /// Returns item ids that have changed, can be any of: [Story], [Ask], [Job].
     pub fn get_updates(&self) -> Result<Vec<u64>, HError> {
-        let response = self.client.get(&Endpoint::updates()).call()?.into_string()?;
+        let response = self
+            .client
+            .get(&Endpoint::updates())
+            .call()?
+            .into_string()?;
         let update: Update = from_str(&response)?;
         Ok(update.items)
     }
