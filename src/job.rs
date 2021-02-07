@@ -12,8 +12,6 @@ pub struct Job {
     pub id: u64,
     /// The score of this submission.
     pub score: i64,
-    /// The text of this submission.
-    pub text: String,
     /// When this submission was made, as a Unix timestamp.
     pub time: u64,
     /// The title of this submission.

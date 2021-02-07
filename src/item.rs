@@ -76,7 +76,6 @@ impl TryFrom<Item> for Job {
             by: convert!(item.by),
             id: item.id,
             score: convert!(item.score),
-            text: convert!(item.text),
             time: convert!(item.time),
             title: convert!(item.title),
             url: convert!(item.url),
