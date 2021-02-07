@@ -56,3 +56,9 @@ macro_rules! convert {
         $e.ok_or(HError::ConversionFailed)?
     };
 }
+
+macro_rules! convert_default {
+    ($e:expr) => {
+        $e.unwrap_or_default()
+    };
+}
