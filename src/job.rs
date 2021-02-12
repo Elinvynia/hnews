@@ -22,7 +22,7 @@ pub struct Job {
 
 impl Job {
     /// Returns the [User] that posted this submission.
-    pub fn by(&self, client: Client) -> Result<User, HError> {
+    pub fn by(&self, client: &Client) -> Result<User, HError> {
         client.get_user(&self.by)
     }
 }
