@@ -32,4 +32,9 @@ impl Comment {
             .map(|kid| client.get_comment(*kid))
             .collect()
     }
+
+    /// Returns the amount of top-level replies.
+    pub fn children(&self) -> usize {
+        self.kids.len()
+    }
 }
