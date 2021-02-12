@@ -33,7 +33,6 @@ pub use ask::Ask;
 pub use client::Client;
 pub use comment::Comment;
 pub use error::HError;
-pub use item::Item;
 pub use job::Job;
 pub use poll::{Poll, PollOption};
 pub use story::Story;
