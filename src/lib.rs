@@ -28,3 +28,12 @@ pub mod poll;
 pub mod prelude;
 pub mod story;
 pub mod user;
+
+pub use ask::Ask;
+pub use client::Client;
+pub use comment::Comment;
+pub use error::HError;
+pub use job::Job;
+pub use poll::{Poll, PollOption};
+pub use story::Story;
+pub use user::User;
