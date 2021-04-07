@@ -1,6 +1,6 @@
-# hnews
-
 [![ci-badge][]][ci] [![docs-badge][]][docs] [![crate-version]][crate-link]
+
+# hnews
 
 hnews is a synchronous Rust library for the Hacker News API.
 
