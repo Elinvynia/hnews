@@ -23,10 +23,8 @@ impl User {
     pub fn comments(&self, client: &Client) -> Result<Vec<Comment>, HError> {
         let mut comments = vec![];
         for x in self.submitted.iter() {
-            match client.get_comment(*x) {
-                Ok(s) => comments.push(s),
-                Err(_) => continue,
-            }
+            let comment = client.get_comment(*x)?;
+            comments.push(comment);
         }
         Ok(comments)
     }
@@ -35,10 +33,8 @@ impl User {
     pub fn polls(&self, client: &Client) -> Result<Vec<Poll>, HError> {
         let mut polls = vec![];
         for x in self.submitted.iter() {
-            match client.get_poll(*x) {
-                Ok(s) => polls.push(s),
-                Err(_) => continue,
-            }
+            let poll = client.get_poll(*x)?;
+            polls.push(poll);
         }
         Ok(polls)
     }
@@ -47,10 +43,8 @@ impl User {
     pub fn stories(&self, client: &Client) -> Result<Vec<Story>, HError> {
         let mut stories = vec![];
         for x in self.submitted.iter() {
-            match client.get_story(*x) {
-                Ok(s) => stories.push(s),
-                Err(_) => continue,
-            }
+            let story = client.get_story(*x)?;
+            stories.push(story);
         }
         Ok(stories)
     }
