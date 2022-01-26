@@ -6,7 +6,7 @@
 //!
 //! hnews is a synchronous Rust library for the Hacker News API.
 //!
-//! It is extremely lightweight (thanks to ureq and miniserde) but still provides enough basics to get you started processing data.
+//! It is extremely lightweight (thanks to ureq and miniserde) but still provides enough features to get you started processing data.
 //!
 //!
 //! [ci]: https://github.com/Elinvynia/hnews/actions?query=workflow%3ARust
