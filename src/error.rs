@@ -3,6 +3,7 @@
 use std::error::Error;
 use std::fmt::{Display, Formatter, Result as FmtResult};
 
+#[allow(clippy::large_enum_variant)]
 #[derive(Debug)]
 /// The error enum representing all possible errors that can originate from this crate.
 pub enum HError {

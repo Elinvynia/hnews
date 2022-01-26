@@ -8,8 +8,8 @@ keywords = ["hackernews", "api", "sync", "simple", "safe"]
 authors = ["Elinvynia <59487684+Elinvynia@users.noreply.github.com>"]
 readme = "README.md"
 license = "MIT/Apache-2.0"
-version = "0.4.0"
-edition = "2018"
+version = "0.4.1"
+edition = "2021"
 
 [dependencies]
 miniserde = "0.1"
